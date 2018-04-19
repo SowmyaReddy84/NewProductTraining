@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserTestCase" project="SkillMappingBackEnd" tests="6" started="6" failures="0" errors="0" ignored="5">
+  <testsuite name="com.niit.SkillMappingBackEnd.TestCase.UserTestCase" time="0.0">
+    <testcase name="testEmailId" classname="com.niit.SkillMappingBackEnd.TestCase.UserTestCase" time="0.0"/>
+    <testcase name="testUpdateUser" classname="com.niit.SkillMappingBackEnd.TestCase.UserTestCase" time="0.0" ignored="true"/>
+    <testcase name="testgetUserById" classname="com.niit.SkillMappingBackEnd.TestCase.UserTestCase" time="0.0" ignored="true"/>
+    <testcase name="testInsertUser" classname="com.niit.SkillMappingBackEnd.TestCase.UserTestCase" time="0.0" ignored="true"/>
+    <testcase name="testAuthorizeUser" classname="com.niit.SkillMappingBackEnd.TestCase.UserTestCase" time="0.0" ignored="true"/>
+    <testcase name="testDeleteUser" classname="com.niit.SkillMappingBackEnd.TestCase.UserTestCase" time="0.0" ignored="true"/>
+  </testsuite>
+</testrun>

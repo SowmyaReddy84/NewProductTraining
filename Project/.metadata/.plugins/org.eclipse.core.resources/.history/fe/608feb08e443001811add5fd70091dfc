@@ -1,0 +1,48 @@
+package com.niit.SkillMappingProject.controller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.niit.SkillMappingBackEnd.Entity.Profile;
+import com.niit.SkillMappingBackEnd.Repository.ProfileDAOImpl;
+import com.niit.SkillMappingBackEnd.Repository.UserDAOImpl;
+
+/**
+ * Servlet implementation class loginController
+ */
+@WebServlet("/loginController")
+public class LoginController extends HttpServlet {
+	ProfileDAOImpl profileDao=new ProfileDAOImpl();
+	 HttpSession session=request.getSession();  
+	 UserDAOImpl userDao = new UserDAOImpl();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		{
+			int empId=Integer.parseInt(request.getParameter("username"));
+			String pwd=request.getParameter("password");
+			
+			List<Profile> profilelist =   profileDao.getAllProfiles();
+			session.setAttribute("profilelist",profilelist);
+			response.sendRedirect("display.jsp");
+			/*if(userDao.authorizeUser(empId, pwd)) {
+				
+				List<Profile> profilelist =   profileDao.getAllProfiles();
+				request.setAttribute("profilelist",profilelist);
+				response.sendRedirect("display.jsp");
+			
+				return;  
+	     }else{  
+	         request.getRequestDispatcher("login.jsp").forward(request,response);  
+	         return;  */
+		}
+			
+			
+}
+}

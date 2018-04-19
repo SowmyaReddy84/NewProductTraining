@@ -1,0 +1,5 @@
+package com.niit.SkillMappingProject.controller;
+
+public class RegisterController {
+
+}

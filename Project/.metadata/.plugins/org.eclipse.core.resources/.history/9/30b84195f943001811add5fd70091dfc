@@ -1,0 +1,96 @@
+package com.niit.SkillMappingBackEnd.TestCase;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Ignore;
+import org.junit.Test;
+
+import com.niit.SkillMappingBackEnd.Entity.User;
+import com.niit.SkillMappingBackEnd.Repository.UserDAOImpl;
+
+public class UserTestCase {
+	private static UserDAOImpl userDao = new UserDAOImpl();
+	private User user1 = new User();
+
+	@BeforeClass
+
+	public static void init() {
+		userDao = new UserDAOImpl();
+
+	}
+
+	//@Ignore
+   @Test void testEmailId()
+   {
+	   user1 = new User();
+
+		user1.setEmailId("reem@gmail.com");
+		
+	   
+   }
+	@Test
+	public void testInsertUser() {
+		boolean flag;
+		user1 = new User();
+
+		user1.setEmpId(200);
+		user1.setName("harish");
+		user1.setEmailId("reem@gmail.com");
+		
+		user1.setRole("Employee");
+		user1.setPassword("123456");
+		//user1.setIBU("CEB");
+		 flag = userDao.insertUser(user1);
+		assertEquals("Failed to insert userdetails!", true, flag);
+		user1 = new User();
+
+		user1.setEmpId(1111);
+		user1.setName("hema");
+		user1.setEmailId("hema@gmail.com");
+	
+		user1.setRole("Employee");
+		user1.setPassword("123456");
+		//user1.setIBU("CEB");
+		 flag = userDao.insertUser(user1);
+		assertEquals("Failed to insert userdetails!", true, flag);
+	}
+
+	// @Ignore
+
+	@Test
+	public void testgetUserById() {
+		user1 = userDao.getUserById(117);
+		assertEquals("Failed to get User !", "seema", user1.getName());
+	}
+
+ @Ignore
+
+	@Test
+	public void testUpdateUser() {
+
+		user1 = userDao.getUserById(118);
+
+		user1.setName("hhh");
+
+		boolean flag = userDao.updateUser(user1);
+		assertEquals("Failed to update userdetails!", true, flag);
+	}
+
+	@Ignore
+	@Test
+	public void testDeleteUser() {
+
+		boolean flag = userDao.deleteUser(117);
+		assertEquals("Failed to delete userdetails!", true, flag);
+	}
+	@Test
+	public void testAuthorizeUser()
+	{
+		boolean flag=userDao.authorizeUser(200,"123456");
+		assertEquals("Failed to authorize userdetails!", true, flag);
+				
+	}
+
+}
