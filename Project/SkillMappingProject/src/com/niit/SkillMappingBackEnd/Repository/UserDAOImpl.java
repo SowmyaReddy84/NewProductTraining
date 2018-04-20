@@ -109,21 +109,34 @@ public class UserDAOImpl {
 		return false;
 
 	}
-	public String authorizeUser(int empId, String pwd)
+	public String authorizeUser(int empId, String pwd,String role)
 	{
-		String role="other";
+		String r="other";
 		//boolean flag=false;
 		User u = new User();
+		int userNameDB = 0;
+		 String passwordDB = "";
+		 String roleDB = "";
 		PreparedStatement ps;
 		try {
-			ps = con.prepareStatement("SELECT role from users where empId=? and password=?");
+			ps = con.prepareStatement("SELECT * from users where empId=? and  password=? and role=?");
 					ps.setInt(1, empId);
 			ps.setString(2, pwd);
-			
+			ps.setString(3, role);
 			ResultSet rs =ps.executeQuery();
 			if( rs.next())
-			{				
-			role=rs.getString(1);  
+			{ 
+				userNameDB = rs.getInt("empId");
+			 passwordDB = rs.getString("password");
+			 roleDB = rs.getString("role");
+			 
+			 if(empId==userNameDB && passwordDB.equals(passwordDB) && roleDB.equals("HR"))
+			 return "HR";
+			 else if(empId==userNameDB && passwordDB.equals(passwordDB) && roleDB.equals("Employee"))
+			 return "Employee";
+			 else if(empId==userNameDB && passwordDB.equals(passwordDB) && roleDB.equals("Employee"))
+			 return "Employer";
+			  
 			}
 		        
 		} catch (SQLException e) {
@@ -133,7 +146,7 @@ public class UserDAOImpl {
 
 
 
-		return role;
+		return "Invalid user credentials";
 
 	}
 	public static List<User> getAllUsers(){  

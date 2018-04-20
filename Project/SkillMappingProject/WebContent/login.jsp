@@ -4,22 +4,36 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
-<form name ="form1" action ="loginController"/>  
+<div>${messages.success}</div>
+<%-- Welcome ${request.getAttribute("empId)} --%>
+<form name ="form1" action ="ValidateServlet"/>  
 <table>  
 <tr>  
-<td>Username(EmployeeId)</td>  
-<td><input type ="text" name="username"/></td>  
+<td>EmployeeId</td>  
+<td><input type ="number" name="username"/></td>  <td>${messages.EmployeeId}</td>
 </tr>  
 <tr>  
 <td>password</td>  
-<td><input type = "password" name = "password"/></td>  
+<td><input type = "password" name = "password"/></td>  <td>${messages.password}</td>
 </tr>  
+<tr>
+<td>Role</td>
+<td>
+<select name="role">
+<option value="HR">HR</option>
+<option value="Employee"  selected="selected">Employee</option>
+<option value="Employer">Employer</option>
+</select>
+</td>
+
+</tr>
 <tr>  
 <td><input name="submit" type="submit" value ="submit"/></td></tr>  
 </table>  
+New User Register Here :<a href="register.jsp">register</a>.
 </form>  
 </body>
 </html>
