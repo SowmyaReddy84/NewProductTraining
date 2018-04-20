@@ -7,15 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form  method="post" action="searchServlet">
 <div align="center">
-
 		<table border="1" cellpadding="5">
 			<caption>
-				<h2>List of Employees</h2>
+				<h2>List of users</h2>
 			</caption>
-			<input type="search" id="mySearch" name="searchKey">
-    <button>Search</button>
 			<tr>
 				<th>EmpID</th>
 				<th>Contact No</th>
@@ -29,11 +25,10 @@
 					<td><c:out value="${profile.contactNo}" /></td>
 					<td><c:out value="${profile.supervisorName}" /></td>
 					<td><c:out value="${profile.businessUnitName}" /></td>
-		<td> <input type="radio" name="approved" value="approved"></td> <br>
+		 <input type="radio" name="approved" value="approved"> <br>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	</form>
 </body>
 </html>
