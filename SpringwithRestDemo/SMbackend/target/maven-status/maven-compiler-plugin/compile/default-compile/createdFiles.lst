@@ -1,0 +1,6 @@
+com\niit\skillmapbackend\entity\Users.class
+com\niit\skillmapbackend\service\UsersService.class
+com\niit\skillmapbackend\config\ApplicationContext.class
+com\niit\skillmapbackend\DAO\UsersDAO.class
+com\niit\skillmapbackend\service\UsersServiceImpl.class
+com\niit\skillmapbackend\DAO\UsersDAOImpl.class
