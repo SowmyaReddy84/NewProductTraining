@@ -9,12 +9,20 @@ public interface EmployeeDAO {
 	
 	public boolean update(Employee emp);
 
-	public Employee listById(int empId);
+	public Employee searchById(int empId);
 	
-	public Employee listByEmailId(String emailId);
+	public Employee searchByEmailId(String emailId);
 	
 	public List<Employee> listAll();
 
 	public boolean delete(int empId);
+	
+	
+	
+	public	boolean approveEmployee(Employee emp);
 
-}
+	public boolean authenticate(int empId, String password, String role); 
+		
+	}
+	
+

@@ -69,7 +69,7 @@ public class EmployeeTestCase {
 	@Test
 	public void updateEmployeeTestcase() {
 		Employee employee=new Employee();
-		employee = employeesService.listEmployeeById(13);
+		employee = employeesService.searchEmployeeById(13);
 		//employees.setEmployeeName("HTML");
       //employee.setEmailId("sonu@gmail.com");
 		employee.setContactNo("987654321");
@@ -89,14 +89,25 @@ public class EmployeeTestCase {
 
 	}
 
-	//@Ignore
+	@Ignore
 	@Test
 	public void listEmployeebyIdTestcase() {
 		Employee employee=new Employee();
-		employee = employeesService.listEmployeeById(110);
+		employee = employeesService.searchEmployeeById(110);
 		assertEquals("Failed to get the employees!", "aju@gmail.com", employee.getEmailId());
 	}
+	//@Ignore
+	@Test
+	public void approveEmployeeTestcase() {
+		Employee employee=new Employee();
+		employee = employeesService.searchEmployeeById(13);
+		
+	
+		boolean flag = employeesService.approveEmployee(employee);
 
+		assertEquals("Failed to approve the employees!", true, flag);
+
+	}
 	
 
 

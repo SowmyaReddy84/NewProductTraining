@@ -30,14 +30,14 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public Employee listById(int empId) {
+	public Employee searchById(int empId) {
 		return (Employee)sessionFactory.getCurrentSession()
 				.createQuery("from Employee where empId=" + empId)
 				.uniqueResult();
 	}
 
 	@Override
-	public Employee listByEmailId(String emailId) {
+	public Employee searchByEmailId(String emailId) {
 		return (Employee)sessionFactory.getCurrentSession()
 				.createQuery("from Employee where emailId='"+emailId+"'")
 				.uniqueResult();
@@ -55,9 +55,26 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	@Override
 
 	public boolean delete(int empId) {
-		sessionFactory.getCurrentSession().delete(listById(empId));	
+		sessionFactory.getCurrentSession().delete(searchById(empId));	
 		return true;
 
+	}
+
+	@Override
+	public boolean approveEmployee(Employee emp) {
+		try {
+			emp.setApproved(true);
+			sessionFactory.getCurrentSession().update(emp);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+   
+	@Override
+	public boolean authenticate(int empId, String password,String role) {
+		return false;
+		
 	}
 
 	

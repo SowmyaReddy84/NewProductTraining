@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class Employee {
 	@Id
 	private int empId;
-	@Column
+	
 	private String name;
 	private String emailId;
 	private String password;
@@ -27,8 +27,8 @@ public class Employee {
 	private String supervisorName;
 	private String cityName;
 	private String businessUnitName;
-	private String status;
-	private String numOfStudentsTaught;
+	private boolean isApproved;
+	private String numOfStudentsTrained;
 	private String numOfstudentsPlaced;
 	private String placedCompanyName;
 	
@@ -38,6 +38,12 @@ public class Employee {
 */
 
 	
+	public boolean isApproved() {
+		return isApproved;
+	}
+	public void setApproved(boolean isApproved) {
+		this.isApproved = isApproved;
+	}
 	public String getName() {
 		return name;
 	}
@@ -74,17 +80,12 @@ public class Employee {
 	public void setBusinessUnitName(String businessUnitName) {
 		this.businessUnitName = businessUnitName;
 	}
-	public String getStatus() {
-		return status;
+	
+	public String getNumOfStudentsTrained() {
+		return numOfStudentsTrained;
 	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	public String getNumOfStudentsTaught() {
-		return numOfStudentsTaught;
-	}
-	public void setNumOfStudentsTaught(String numOfStudentsTaught) {
-		this.numOfStudentsTaught = numOfStudentsTaught;
+	public void setNumOfStudentsTrained(String numOfStudentsTrained) {
+		this.numOfStudentsTrained = numOfStudentsTrained;
 	}
 	public String getNumOfstudentsPlaced() {
 		return numOfstudentsPlaced;

@@ -11,13 +11,15 @@ public boolean addEmployee(Employee emp);
 	
 	public boolean updateEmployee(Employee emp);
 
-	public Employee listEmployeeById(int empId);
+	public Employee searchEmployeeById(int empId);
 
 	public List<Employee> listAllEmployees();
 
 	public boolean deleteEmployee(int empId);
 
-	public Employee listEmployeeByEmailId(String string);
+	
 
+	//public Employee searchByemailId(String emailId);
+	public	boolean approveEmployee(Employee emp);
 	
 }

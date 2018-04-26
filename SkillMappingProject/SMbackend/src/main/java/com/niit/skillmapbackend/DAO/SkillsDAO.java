@@ -9,9 +9,9 @@ public boolean add(Skills skill);
 	
 	public boolean update(Skills skill);
 
-	public Skills listById(int skillId);
+	//public Skills listById(int skillId);
 	
-	public Skills listBySkillName(String skillName);
+	public List<Skills> searchBySkillName(String skillName);
 	
 	public List<Skills> listAll();
 

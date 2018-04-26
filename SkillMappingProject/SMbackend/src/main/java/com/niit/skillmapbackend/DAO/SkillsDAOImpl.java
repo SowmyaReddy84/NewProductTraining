@@ -12,25 +12,19 @@ public class SkillsDAOImpl implements SkillsDAO{
 	private SessionFactory sessionFactory;
 
 	@Override
-	public boolean add(Skills emp) {
-		 sessionFactory.getCurrentSession().save(emp);
+	public boolean add(Skills skill) {
+		 sessionFactory.getCurrentSession().save(skill);
 		return true;
 		
 	}
 
 	@Override
-	public boolean update(Skills emp) {
-		sessionFactory.getCurrentSession().update(emp);
+	public boolean update(Skills skill) {
+		sessionFactory.getCurrentSession().update(skill);
          return true;
 	}
 
-	@Override
-	public Skills listById(int empId) {
-		return (Skills)sessionFactory.getCurrentSession()
-				.createQuery("from Skills where empId=" + empId)
-				.uniqueResult();
-	}
-
+	
 
 	@Override
 
@@ -44,16 +38,14 @@ public class SkillsDAOImpl implements SkillsDAO{
 	@Override
 
 	public boolean delete(int empId) {
-		sessionFactory.getCurrentSession().delete(listById(empId));	
+		sessionFactory.getCurrentSession().delete(empId);	
 		return true;
 
 	}
 
 	@Override
-	public Skills listBySkillName(String skillName) {
-		return (Skills)sessionFactory.getCurrentSession()
-				.createQuery("from Skills where skillName='"+skillName+"'")
-				.uniqueResult();
+	public List<Skills> searchBySkillName(String skillName) {
+		return sessionFactory.getCurrentSession().createQuery("from Skills where skillName='"+skillName+"'").list();
 	}
 
 	

@@ -9,11 +9,11 @@ import com.niit.skillmapbackend.DAO.EmployeeDAO;
 import com.niit.skillmapbackend.entity.Employee;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-  @Autowired
-  private EmployeeDAO employeeDAO;
-  @Override
+	@Autowired
+	private EmployeeDAO employeeDAO;
+	@Override
 	public boolean addEmployee(Employee employee) {
-		if(employeeDAO.listById(employee.getEmpId())!=null) {
+		if(employeeDAO.searchById(employee.getEmpId())!=null) {
 			return false;
 		}
 		else {
@@ -22,9 +22,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}
 
 	}
-  @Override
+	@Override
 	public boolean updateEmployee(Employee employee) {
-		if(employeeDAO.listById(employee.getEmpId())!=null) {	
+		if(employeeDAO.searchById(employee.getEmpId())!=null) {	
 			employeeDAO.update(employee);
 			return true;
 		}
@@ -33,21 +33,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}
 
 	}
-  
-  
-  @Override
-	public Employee listEmployeeById(int empId) {
-		return employeeDAO.listById(empId);
+
+
+	@Override
+	public Employee searchEmployeeById(int empId) {
+		return employeeDAO.searchById(empId);
 
 	}
-  @Override
+	@Override
 	public List<Employee> listAllEmployees() {
 		return employeeDAO.listAll();
 
 	}
-  @Override
+	@Override
 	public boolean deleteEmployee(int empId) {
-		if(employeeDAO.listById(empId)!=null) {	
+		if(employeeDAO.searchById(empId)!=null) {	
 			employeeDAO.delete(empId);
 			return true;
 		}
@@ -55,17 +55,23 @@ public class EmployeeServiceImpl implements EmployeeService {
 			return false;
 		}
 
-	
-	}
-  @Override
-	public Employee listEmployeeByEmailId(String email) {
-		
-		return employeeDAO.listByEmailId(email);
+
 	}
 
-	
 
-	
-	
+	@Override
+	public boolean approveEmployee(Employee emp) {
+		if(employeeDAO.approveEmployee(emp))
+					return true;
+		else
+			return false;
+	}
+
+
+
+
+
+
+
 
 }
